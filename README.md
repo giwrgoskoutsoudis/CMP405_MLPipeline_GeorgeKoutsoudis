@@ -1,33 +1,56 @@
 # 🧠 Machine Learning – Social Media Addiction Prediction
 
-## 📌 Περιγραφή Dataset
+## 📌 Περιγραφή
 
-Το dataset "Students Social Media Addiction" περιλαμβάνει δεδομένα από φοιτητές σχετικά με:
+Αυτό το notebook περιλαμβάνει την υλοποίηση ενός Machine Learning μοντέλου που προβλέπει το επίπεδο εθισμού ενός φοιτητή στα social media, βασισμένο σε χαρακτηριστικά όπως χρόνος χρήσης, ύπνος και επιπτώσεις στην καθημερινότητα.
 
-- Χρόνο χρήσης social media
-- Ψυχική υγεία
-- Ύπνο
-- Ακαδημαϊκές επιδόσεις
-- Διαπροσωπικές σχέσεις
+Χρησιμοποιείται το dataset **"Students Social Media Addiction"** από την πλατφόρμα [Kaggle](https://www.kaggle.com/datasets), κατάλληλο για πρόβλημα ταξινόμησης.
 
-Προέρχεται από την πλατφόρμα [Kaggle](https://www.kaggle.com/datasets) και είναι κατάλληλο για πρόβλημα ταξινόμησης (classification).
+## 👤 Ονοματεπώνυμο & ΑΜ
+
+**Ονοματεπώνυμο:** Γιώργος Κουτσούδης  
+**Αριθμός Μητρώου (ΑΜ):** 12345678
 
 ## 🔍 Περιγραφή Μοντέλου
 
-Χρησιμοποιήσαμε τον αλγόριθμο **Random Forest Classifier** για να προβλέψουμε το επίπεδο εθισμού στα social media (Low, Medium, High) με βάση τα χαρακτηριστικά του κάθε φοιτητή.
+Χρησιμοποιήσαμε τον αλγόριθμο **Random Forest Classifier** για να προβλέψουμε το επίπεδο εθισμού στα social media:  
+- `Low` – Χαμηλό  
+- `Medium` – Μέτριο  
+- `High` – Υψηλό
 
-- ✅ Accuracy: >99%
-- 🔢 Training/Test split: 80/20
-- 🧪 Μετρικές: Accuracy, Precision, Recall
+**Βασικά Χαρακτηριστικά:**
+- Accuracy: >99%
+- Train/Test split: 80/20
+- Μετρικές: Accuracy, Precision, Recall
+- Χρήση SMOTE για ισορροπία μεταξύ κατηγοριών
 
-## 🧪 Προετοιμασία & Εκπαίδευση
+## 🧪 Βήματα Εκπαίδευσης
 
-1. **Καθαρισμός Δεδομένων:** Αφαίρεση `Student_ID`, μετατροπή κατηγορικών χαρακτηριστικών με Label Encoding.
-2. **Target Variable:** Δημιουργήθηκε νέα στήλη `Addicted_Level` από το `Addicted_Score`.
-3. **Εκπαίδευση:** Το μοντέλο εκπαιδεύτηκε με τα υπόλοιπα χαρακτηριστικά για ταξινόμηση σε 3 επίπεδα εθισμού.
+1. **Καθαρισμός Δεδομένων:** Αφαίρεση `Student_ID`, Label Encoding για κατηγορικά.
+2. **Target Variable:** Δημιουργήθηκε στήλη `Addicted_Level` από το `Addicted_Score`.
+3. **Εκπαίδευση Μοντέλου:** Με Random Forest Classifier και SMOTE.
+4. **Αξιολόγηση:** Με Accuracy Score, Classification Report, Confusion Matrix.
 
-## 📂 Περιεχόμενα
+## ▶️ Οδηγίες Εκτέλεσης
 
-- `ML_Model_SocialMedia_Addiction.ipynb`: Google Colab notebook με τον κώδικα του μοντέλου.
-- `Students Social Media Addiction.csv`: Dataset ανεβασμένο μέσω Colab.
-- `README.md`: Αυτό το αρχείο.
+1. **Ανοίξτε το αρχείο:**  
+   `ML_Model_SocialMedia_Addiction.ipynb` μέσω Google Colab ή Jupyter Notebook.
+
+2. **Βήμα προς βήμα εκτέλεση:**  
+   Εκτελέστε κάθε κελί διαδοχικά για να:
+   - Εισάγετε τα δεδομένα
+   - Καθαρίσετε το dataset
+   - Εκπαιδεύσετε το μοντέλο
+   - Δείτε τα αποτελέσματα αξιολόγησης
+
+3. **Προϋποθέσεις:**  
+   Απαιτούνται οι παρακάτω βιβλιοθήκες:
+   - `pandas`, `numpy`
+   - `sklearn`
+   - `matplotlib`, `seaborn`
+   - `imblearn`
+
+   Αν εργάζεστε σε τοπικό περιβάλλον, μπορείτε να εγκαταστήσετε τις βιβλιοθήκες με:
+
+   ```bash
+   pip install pandas numpy scikit-learn matplotlib seaborn imbalanced-learn
