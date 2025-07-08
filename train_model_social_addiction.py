@@ -32,10 +32,8 @@ print("\n🕳️ Null values:\n", df.isnull().sum())
 # 🧼 Βήμα 4: Καθαρισμός + Target μετατροπή
 # -----------------------------------------
 def categorize(score):
-    if score <= 3:
+    if score <= 5:
         return "Low"
-    elif score <= 6:
-        return "Medium"
     else:
         return "High"
 
